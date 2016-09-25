@@ -1,7 +1,12 @@
 <div class="left">
-<br>
-<%= @name["prescriptions"][0]["name"] %>
+  <br>
+  Ndc: <%= @name["prescriptions"][0]["ndc"] %><br>
+  Name:<%= @name["prescriptions"][0]["name"] %><br>
+  Dosage:<%= @name["prescriptions"][0]["dosage"]["dosesPerDay"] %> <br>
+  Retail 30 days copayment <%= @price_30 %><br>
+  Mail 90 days copayment <%= @price_90 %><br>
 </div>
+
 <div class="right">
-<img src="<%= @photo['Items'][0]['ImageUrl'] %>"/>
+  <img src="<%= @photo['Items'][0]['ImageUrl'] %>"/>
 </div>

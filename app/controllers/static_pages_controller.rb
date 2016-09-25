@@ -15,7 +15,10 @@ class StaticPagesController < ApplicationController
   def detail
     @name = JSON.parse(get_member_profile)
     @photo = JSON.parse(get_drug_image)
-    byebug
+    @price = get_drug_price
+    puts @price
+    @price_30 = @price['data'][0]['retail']['oop_30_day']['amount']
+    @price_90 = @price['data'][0]['mail']['oop_90_day']['amount']
     render :detail
   end
 
