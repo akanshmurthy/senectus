@@ -1,0 +1,5 @@
+<ul>
+  <% @results['prescriptions'].each do |result| %>
+    <a href="/drugdetail"><li> <%= result['name'] %> </li></a>
+  <% end %>
+</ul>

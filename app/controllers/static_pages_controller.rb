@@ -1,15 +1,15 @@
 require 'application_helper'
+require 'json'
 
 class StaticPagesController < ApplicationController
   include ApplicationHelper
 
   def root
-    @results = get_member_profile
-    puts @results
-    render :root
   end
 
   def list
+    @results = JSON.parse(get_member_profile)
+    render :list
   end
 
   def detail
