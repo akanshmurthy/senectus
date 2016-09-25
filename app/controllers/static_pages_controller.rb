@@ -9,4 +9,10 @@ class StaticPagesController < ApplicationController
     render :root
   end
 
+  def list
+  end
+
+  def detail
+  end
+
 end
