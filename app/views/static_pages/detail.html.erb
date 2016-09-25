@@ -1,13 +1,16 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-8" style="width:20px"></div>
+  </div>
+  <div class="row">
     <div class="col-md-8">
-        <div class="row">
-      <div class="col-xs-8 col-sm-6">
-                Ndc: <%= @name["prescriptions"][0]["ndc"] %>
-        Name:<%= @name["prescriptions"][0]["name"] %>
+        <div class="row" style="margin-left: 20px;">
+      <div class="col-xs-8 col-sm-6 list_item" >
+        <img src="<%= @photo['Items'][0]['ImageUrl'] %>"/>
       </div>
-      <div class="col-xs-4 col-sm-6">
-        Dosage:<%= @name["prescriptions"][0]["dosage"]["dosesPerDay"] %> times a day
+      <div class="col-xs-4 col-sm-6 list_item">
+        <%= @name["prescriptions"][0]["name"] %><br>
+        <%= @name["prescriptions"][0]["dosage"]["dosesPerDay"] %> times a day
       </div>
 
 
@@ -15,33 +18,35 @@
             </div>
     </div>
     <div class="col-md-4">
-        Retail 30 days copayment <%= @price_30 %><br>
-        Mail 90 days copayment <%= @price_90 %><br>
+      <div class="list_price">
+        $<%= @price_30 %></div>
+        <div id="per_month">30 days retail</div>
+      <div class="list_price">
+        $<%= @price_90 %><br>
+      </div>
+      <div id="per_month">90 days mail order</div>
     </div>
   </div>
 </div>
-
-<div>
-  <img src="<%= @photo['Items'][0]['ImageUrl'] %>"/>
-</div>
-
-<div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2 text">
   <% if @druginteractions["DDIScreenResponse"]["DDIScreenResults"].length == 0 %>
-    &#10003; You no adverse drug to drug interactions with any of your prescriptions.
+    You have no adverse drug to drug interactions with any of your prescriptions.<br>
   <% else %>
     Warning! <%= @druginteractions["DDIScreenResponse"]["DDIScreenResults"][0]["ScreenMessage"] %>
   <% end %>
 </div>
 
-<div>
-We checked to see if there are any drugs you can take that are cheaper.
+<div class="col-md-8 col-md-offset-2 text">
+<div class="list_item"></div>We checked to see if there are any drugs you can take that are cheaper.<br>
 <% if @cheapestdrugs.length > 0 %>
-  The candidate(s):
+  <b>The candidate(s):</b><br>
   <%= @cheapestdrugs.each do |drug| %>
-    <%= drug %>
+    &#10003;<%= drug[0] %> Price: $<%= drug[1] %>
     <br>
   <% end %>
 <% else %>
   We did not find any candidates.
 <% end %>
+</div>
 </div>
