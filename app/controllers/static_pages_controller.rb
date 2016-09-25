@@ -19,7 +19,15 @@ class StaticPagesController < ApplicationController
     @price = get_drug_price
     @price_30 = @price['data'][0]['retail']['oop_30_day']['amount']
     @price_90 = @price['data'][0]['mail']['oop_90_day']['amount']
-    byebug
+    @cheaperdrugs = JSON.parse(get_drugs_under_drug_classification)
+    @cheapestdrugs = []
+    @cheaperdrugs["Items"].each do |cheaperdrug|
+      cheaperprices = get_price_for_cheaper_drug(cheaperdrug["DrugDesc"])
+      cheaperprice = cheaperprices['data'][0]['retail']['oop_30_day']['amount']
+      if cheaperprice.to_f < @price_30.to_f
+        @cheapestdrugs.push(cheaperdrug["DrugDesc"])
+      end
+    end
     render :detail
   end
 

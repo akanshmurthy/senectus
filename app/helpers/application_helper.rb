@@ -66,4 +66,21 @@ module ApplicationHelper
     response = res.request(req)
     response.body
   end
+
+  def get_drugs_under_drug_classification
+    url = URI.parse('https://api.fdbcloudconnector.com/cc/api/v1_3/Classifications/2693/DrugLinks?ClassificationType=ETC&CallSystemName=Hackathon&CallID=8675309&DeptName=Hackathon&DrugConceptType=DispensableDrug')
+    req = Net::HTTP::Get.new(url.to_s)
+    req['Accept'] = 'application/json'
+    req.add_field('Authorization', 'SHAREDKEY 1197:n1ndBzCNh+hW7kbVueswEsCGNiDd1yS6U4MKk3kOe14=')
+    res = Net::HTTP.new(url.host, url.port)
+    res.use_ssl = true
+    res.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    response = res.request(req)
+    response.body
+  end
+
+  def get_price_for_cheaper_drug(drug_name)
+    client = PokitDok::PokitDok.new("zJd3GGhGdcXX6jjshri2", "u7qHAtKIwObRemO8QtZn6VrWVjYVhEpfjrBegMTM")
+    client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S5820003', drug: drug_name)
+  end
 end

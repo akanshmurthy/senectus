@@ -32,3 +32,16 @@
     Warning! <%= @druginteractions["DDIScreenResponse"]["DDIScreenResults"][0]["ScreenMessage"] %>
   <% end %>
 </div>
+
+<div>
+We checked to see if there are any drugs you can take that are cheaper.
+<% if @cheapestdrugs.length > 0 %>
+  The candidate(s):
+  <%= @cheapestdrugs.each do |drug| %>
+    <%= drug %>
+    <br>
+  <% end %>
+<% else %>
+  We did not find any candidates.
+<% end %>
+</div>
