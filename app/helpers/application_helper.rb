@@ -27,9 +27,9 @@ module ApplicationHelper
     response.body
   end
 
-  def get_drug_price
+  def get_drug_price(name='carbidopa')
     client = PokitDok::PokitDok.new("zJd3GGhGdcXX6jjshri2", "u7qHAtKIwObRemO8QtZn6VrWVjYVhEpfjrBegMTM")
-    client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S5820003', drug: 'carbidopa')
+    client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S5820003', drug: name)
   end
 
   def get_drug_interactions
