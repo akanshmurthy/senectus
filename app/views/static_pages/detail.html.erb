@@ -21,6 +21,14 @@
   </div>
 </div>
 
-<div class="right">
+<div>
   <img src="<%= @photo['Items'][0]['ImageUrl'] %>"/>
+</div>
+
+<div>
+  <% if @druginteractions["DDIScreenResponse"]["DDIScreenResults"].length == 0 %>
+    &#10003; You no adverse drug to drug interactions with any of your prescriptions.
+  <% else %>
+    Warning! <%= @druginteractions["DDIScreenResponse"]["DDIScreenResults"][0]["ScreenMessage"] %>
+  <% end %>
 </div>
