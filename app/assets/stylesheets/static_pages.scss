@@ -1,3 +1,80 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body { 
+    margin: 10; /* Убираем отступы */
+   }
+#header {
+opacity: 0.43;
+background: #248B79;
+}
+#welcome {
+font-family: AppleSDGothicNeo-Regular;
+font-size: 27px;
+color: #248B79;
+letter-spacing: 0.16px;
+}
+#tell_us {
+    /* Tell us about yourse: */
+font-family: AppleSDGothicNeo-SemiBold;
+font-size: 22px;
+color: #248B79;
+letter-spacing: 0.13px;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.home_form {
+font-family: AppleSDGothicNeo-Regular;
+font-size: 25px;
+color: rgba(74,73,74,0.83);
+letter-spacing: 0.14px;
+}
+
+.medical_list {
+font-family: AppleSDGothicNeo-Regular;
+font-size: 27px;
+color: #FFFFFF;
+letter-spacing: 0.16px;
+}
+.list_item {
+    font-family: AppleSDGothicNeo-ExtraBold;
+font-size: 22px;
+color: #4A4A4A;
+letter-spacing: 0.13px;
+}
+.list_price {
+font-family: AppleSDGothicNeo-Bold;
+font-size: 42px;
+color: #248B79;
+letter-spacing: 0.25px;
+}
+#per_month {
+    font-family: AppleSDGothicNeo-SemiBold;
+font-size: 18px;
+color: #248B79;
+letter-spacing: 0.1px;
+}
+.janes_list {
+font-family: AppleSDGothicNeo-SemiBold;
+font-size: 32px;
+color: #000000;
+letter-spacing: 0.19px;
+}
+hr {
+    border: 6px solid #248B79;
+}
+.per_day {
+    font-family: AppleSDGothicNeo-SemiBold;
+font-size: 22px;
+color: #4A4A4A;
+letter-spacing: 0.13px;
+}

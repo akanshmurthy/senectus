@@ -1,5 +1,17 @@
-<ul>
-  <% @results['prescriptions'].each do |result| %>
-    <a href="/drugdetail"><li> <%= result['name'] %> </li></a>
-  <% end %>
-</ul>
+
+<div class="raw">
+    <div class="col-md-10 col-md-offset-2 janes_list"><p class="text-xs-left" style="margin-left: 200px;">Isabella's Prescription Drug List</p>
+    </div>
+
+    <div class="raw medical_list">
+
+      <% @results['prescriptions'].each do |result| %>
+        <div class="col-md-6 col-md-offset-2 list_item"><p class="text-xs-left" style="margin-left: 20px;"><a href="/drugdetail"><%= result['name'] %> </a></p><br>
+        <div class="per_day"><p class="text-xs-left" style="margin-left: 20px;"><%= result['dosage']['dosesPerDay'] %> times per day</a></p></div>
+        </div>
+        <div class="col-md-4"><div class="list_price">$<%= @price %></div><div id="per_month">per month</div></div>
+        <hr>
+        <% end %>
+
+    </div>
+</div>
