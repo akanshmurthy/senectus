@@ -42,7 +42,7 @@
 <% if @cheapestdrugs.length > 0 %>
   <b>The candidate(s):</b><br>
   <%= @cheapestdrugs.each do |drug| %>
-    &#10003;<%= drug %>
+    &#10003;<%= drug[0] %> Price: $<%= drug[1] %>
     <br>
   <% end %>
 <% else %>

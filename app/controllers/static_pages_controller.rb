@@ -13,14 +13,13 @@ class StaticPagesController < ApplicationController
     puts @results
     @results['prescriptions'].each do |result|
         res_name = result['name'].downcase.split
-        res_price = get_drug_price(res_name[0])['data'][0]['retail']['oop_30_day']['amount']
-        puts "\n\n\n res_price #{res_price} for name #{res_name}"
+        res_price = get_drug_price
         drug_list[res_name] = res_price
     end
     puts "\n\n\n drug_list #{drug_list}"
     name = @results['prescriptions'][0]['name'].downcase.split
     puts "name #{name}"
-    @price = get_drug_price(name[0])['data'][0]['retail']['oop_30_day']['amount']
+    price = get_drug_price()['data'][0]['retail']['oop_30_day']['amount']
     render :list
   end
 
@@ -37,7 +36,7 @@ class StaticPagesController < ApplicationController
       cheaperprices = get_price_for_cheaper_drug(cheaperdrug["DrugDesc"])
       cheaperprice = cheaperprices['data'][0]['retail']['oop_30_day']['amount']
       if cheaperprice.to_f < @price_30.to_f
-        @cheapestdrugs.push(cheaperdrug["DrugDesc"])
+        @cheapestdrugs.push([cheaperdrug["DrugDesc"], cheaperprice])
       end
     end
     render :detail
