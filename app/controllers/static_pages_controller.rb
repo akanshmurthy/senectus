@@ -13,6 +13,8 @@ class StaticPagesController < ApplicationController
   end
 
   def detail
+    @results = JSON.parse(get_member_profile)
+    render :detail
   end
 
 end
