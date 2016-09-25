@@ -1,27 +1,17 @@
-<<<<<<< HEAD
+
 <div class="raw">
-<div class="col-md-10 col-md-offset-2 janes_list"><p class="text-xs-left" style="margin-left: 200px;">Isabella's Prescription Drug List</p></div>
-</div>
-<div class="raw medical_list">
-
-  <% @results['prescriptions'].each do |result| %>
-    <div class="col-md-6 col-md-offset-2 list_item"><p class="text-xs-left" style="margin-left: 20px;"><a href="/drugdetail"><%= result['name'] %> </a></p><br>
-    <div class="per_day"><p class="text-xs-left" style="margin-left: 20px;"><%= result['dosage']['dosesPerDay'] %> times per day</a></p></div>
+    <div class="col-md-10 col-md-offset-2 janes_list"><p class="text-xs-left" style="margin-left: 200px;">Isabella's Prescription Drug List</p>
     </div>
-    <div class="col-md-4"><div class="list_price">$<%= @price %></div><div id="per_month">per month</div></div>
-    <hr>
-=======
 
-<div class="raw medical_list">
+    <div class="raw medical_list">
 
-  
-  
+      <% @results['prescriptions'].each do |result| %>
+        <div class="col-md-6 col-md-offset-2 list_item"><p class="text-xs-left" style="margin-left: 20px;"><a href="/drugdetail"><%= result['name'] %> </a></p><br>
+        <div class="per_day"><p class="text-xs-left" style="margin-left: 20px;"><%= result['dosage']['dosesPerDay'] %> times per day</a></p></div>
+        </div>
+        <div class="col-md-4"><div class="list_price">$<%= @price %></div><div id="per_month">per month</div></div>
+        <hr>
+        <% end %>
 
-
-  <% @results['prescriptions'].each do |result| %>
-    <div class="col-md-8 list_item"><p class="text-xs-left" style="margin-left: 20px;"><a href="/drugdetail"><%= result['name'] %> </a></p></div>
-    <div class="col-md-4"><div class="list_price">$7.43</div><div id="per_month">per month</div></div>
->>>>>>> 6d501b9f3f00d64913dd3736beb2873e230fa2fb
-  <% end %>
-
+    </div>
 </div>
