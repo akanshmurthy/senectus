@@ -1,4 +1,6 @@
 require 'net/http'
+require 'pokitdok'
+
 
 module ApplicationHelper
   def get_member_profile
@@ -11,6 +13,11 @@ module ApplicationHelper
     res.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = res.request(req)
     response.body
+  end
+
+  def get_drug_price
+    client = PokitDok::PokitDok.new(ENV["pokitdok_client_id"], ENV["pokitdok_client_secret"])
+    client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S5820003', drug: 'carbidopa')
   end
   
 end
