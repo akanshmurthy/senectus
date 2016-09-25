@@ -1,5 +1,13 @@
-<ul>
+
+<div class="raw medical_list">
+
+  
+  
+
+
   <% @results['prescriptions'].each do |result| %>
-    <a href="/drugdetail"><li> <%= result['name'] %> </li></a>
+    <div class="col-md-8 list_item"><p class="text-xs-left" style="margin-left: 20px;"><a href="/drugdetail"><%= result['name'] %> </a></p></div>
+    <div class="col-md-4"><div class="list_price">$7.43</div><div id="per_month">per month</div></div>
   <% end %>
-</ul>
+
+</div>
