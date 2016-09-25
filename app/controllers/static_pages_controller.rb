@@ -13,7 +13,9 @@ class StaticPagesController < ApplicationController
   end
 
   def detail
-    @results = JSON.parse(get_member_profile)
+    @name = JSON.parse(get_member_profile)
+    @photo = JSON.parse(get_drug_image)
+    byebug
     render :detail
   end
 
